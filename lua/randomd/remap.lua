@@ -48,10 +48,13 @@ vim.keymap.set(
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
-vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
+vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/randomd/packer.lua<CR>");
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
-
+vim.keymap.set("n", "<C-w><Left>",  "<C-w>h")
+vim.keymap.set("n", "<C-w><Down>",  "<C-w>j")
+vim.keymap.set("n", "<C-w><Up>",    "<C-w>k")
+vim.keymap.set("n", "<C-w><Right>", "<C-w>l")

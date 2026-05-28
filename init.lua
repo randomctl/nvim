@@ -1,2 +1,11 @@
-require("theprimeagen")
-
+require('randomd.set')
+require('randomd.remap')
+require('randomd.packer')
+require('plugins.theme')
+require('plugins.packer')
+require('plugins.treesitter')
+require('plugins.telescope')
+require('plugins.fugitive')
+require('plugins.harpoon')
+require('plugins.undotree')
+require('plugins.lsp')
