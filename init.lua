@@ -1,6 +1,5 @@
 require('randomd.set')
 require('randomd.remap')
-require('randomd.packer')
 require('plugins.theme')
 require('plugins.packer')
 require('plugins.treesitter')
