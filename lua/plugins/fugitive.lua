@@ -20,5 +20,5 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
     end,
 })
-vim.keymap.set("n", "<leader>df", ":Gdiffsplit<CR>")
+vim.keymap.set("n", "<leader>df", ":Gvdiffsplit<CR>")
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
