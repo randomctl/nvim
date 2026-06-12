@@ -71,10 +71,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 
 		vim.keymap.set("n", "[d", function()
-			vim.diagnostic.jump({ count = -1 })
+			vim.diagnostic.jump({
+				count = -1,
+				on_jump = function(diagnostic, bufnr)
+					if diagnostic then
+						vim.diagnostic.open_float(nil, { bufnr = bufnr })
+					end
+				end,
+			})
 		end, opts)
 		vim.keymap.set("n", "]d", function()
-			vim.diagnostic.jump({ count = 1 })
+			vim.diagnostic.jump({
+				count = 1,
+				on_jump = function(diagnostic, bufnr)
+					if diagnostic then
+						vim.diagnostic.open_float(nil, { bufnr = bufnr })
+					end
+				end,
+			})
 		end, opts)
 	end,
 })
