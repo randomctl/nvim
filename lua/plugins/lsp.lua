@@ -44,6 +44,18 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local opts = { buffer = ev.buf }
+		vim.keymap.set("n", "<leader>vws", function()
+			vim.lsp.buf.workspace_symbol()
+		end, opts)
+		vim.keymap.set("n", "<leader>vd", function()
+			vim.diagnostic.open_float()
+		end, opts)
+		vim.keymap.set("n", "<leader>vrr", function()
+			vim.lsp.buf.references()
+		end, opts)
+		vim.keymap.set("i", "<C-h>", function()
+			vim.lsp.buf.signature_help()
+		end, opts)
 
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -58,8 +70,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.format({ async = true })
 		end, opts)
 
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+		vim.keymap.set("n", "[d", function()
+			vim.diagnostic.jump({ count = -1 })
+		end, opts)
+		vim.keymap.set("n", "]d", function()
+			vim.diagnostic.jump({ count = 1 })
+		end, opts)
 	end,
 })
 
